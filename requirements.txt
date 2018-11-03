@@ -1,3 +1,2 @@
+scapy
 pyric
-netaddr
-requests

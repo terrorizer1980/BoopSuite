@@ -1,8 +1,6 @@
 from netaddr import *
 from scapy.all import *
 
-
-# get signal strength from non-decoded slice of data in packet.
 def get_rssi(decoded):
 
     # for 2.4 ghz packets most rssi appears here
@@ -12,7 +10,7 @@ def get_rssi(decoded):
         rssi = -101
 
     # Else it can also appear here
-    if rssi not in xrange(-100, 0):
+    if rssi not in range(-100, 0):
         try:
             rssi = (-(256 - ord(decoded[-4:-3])))
         except:
@@ -28,7 +26,7 @@ def get_rssi(decoded):
 
 def get_ssid(p):
 
-    if p and u"\x00" not in "".join([x if ord(x) < 128 else "" for x in p]):
+    if p and u"\x00" not in "".join([str(x) if x < 128 else "" for x in p]):
 
         try:
             # Remove assholes emojis in SSID's
@@ -74,16 +72,18 @@ def get_security(packet):
             sec.remove("WPA")
 
         sec.add("WPA2")
-        temp = str(p_layer.info).encode("hex")
+        temp = str(p_layer.info)
 
     elif packet.getlayer(Dot11Elt, ID=221):
         p_layer = packet.getlayer(Dot11Elt, ID=221)
 
-        if p_layer.info.startswith("\x00P\xf2\x01\x01\x00"):
+        print(f"player info: {p_layer.info}")
+        if p_layer.info.startswith(b"\x00P\xf2\x01\x01\x00"):
+            print("Starts")
 
             if "WPA2" not in sec:
                 sec.add("WPA")
-                temp = str(packet.getlayer(Dot11Elt, ID=221).info).encode("hex")
+                temp = str(packet.getlayer(Dot11Elt, ID=221).info)
 
     # If encryption != WPA/WPA2
     if not sec:
@@ -96,25 +96,28 @@ def get_security(packet):
         else:
             sec.add("OPEN")
 
+    # print(temp)
+
     if "WPA2" in sec and temp:
 
-        if temp[4:12] == "000fac02":
+        if temp[10:26] == "\\x00\\x0f\\xac\\x02":
 
-            if temp[16:24] == "000fac04":
+            if temp[34:50] == "\\x00\\x0f\\xac\\x04":
                 cipher = "CCMP/TKIP"
 
             else:
                 cipher = "TKIP"
 
-        elif temp[4:12] == "000fac04":
+        elif temp[10:26] == "\\x00\\x0f\\xac\\x04":
             cipher = "CCMP"
 
     else:
         cipher = "-"
 
-    if "0050f204104a000110104400010210" in str(packet).encode("hex"):
+    if "\\x00\\x50\\xf2\\x04\\x10\\x4a\\x00\\x01\\x10\\x10\\x44\\x00\\x01\\x02\\x10" in packet:
         sec.add("WPS")
 
+    # print(sec, cipher)
     return sec, cipher
 
 
