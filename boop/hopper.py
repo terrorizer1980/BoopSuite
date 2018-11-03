@@ -56,7 +56,6 @@ class Hopper:
         return get_channel(self.interface)
 
     def run(self):
-        print("Running")
         while True:
             channel = choice(self.channels)
 

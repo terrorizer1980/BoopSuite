@@ -6,7 +6,6 @@ from boop import *
 
 import pyric
 import pyric.pyw as pyw
-# import pyric.lib.libnl as nl
 
 from functools import wraps
 
