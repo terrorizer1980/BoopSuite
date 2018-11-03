@@ -2,5 +2,8 @@
 *.pcap
 test.py
 pcaps/
-__init__.py
 errorlog.txt
+dist/
+build/
+boop.egg-info/
+__pycache__/

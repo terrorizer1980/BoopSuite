@@ -1,24 +1,17 @@
 #!/usr/bin/env python3
 
+import boop
 import time
-import logging
 
-from boop import *
-
-from boop.hopper import Hopper
-from boop.sniffer import BoopSniff
-
-logging.getLogger("boop.sniffer").setLevel(logging.WARNING)
-
-app = BoopSniff("wlx18d6c70f910d", Hopper("wlx18d6c70f910d"))
+app = boop.BoopSniff(boop.WIRELESS_DEVICES[0])
 app.packets = 0
 
-@app.handler(MGMT_DEAUTH)
+@app.handler(boop.MGMT_DEAUTH)
 def pkt(self, p):
     self.packets += 1
     return
 
-@app.handler(MGMT_BEACON)
+@app.handler(boop.MGMT_BEACON)
 def pkt(self, p):
     self.packets += 1
     return

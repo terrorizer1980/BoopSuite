@@ -1,6 +1,5 @@
 class AccessPoint:
 
-
     def __init__(self, ssid, enc, cipher, ch, mac, ven, sig, p):
 
         self.mSSID = ssid

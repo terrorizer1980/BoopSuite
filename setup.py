@@ -6,7 +6,7 @@
  #   the whole path...
  #
 __license__ = 'MIT'
-__version__ = '0.0.1'
+__version__ = '3.0.1'
 __date__ = '2018'
 __author__ = 'Jarad Dingman'
 __maintainer__ = 'Jarad Dingman'
@@ -17,7 +17,7 @@ from setuptools import setup, find_packages
 import boop
 
 requires = [
-    "scapy", "PyRIC"
+    "scapy", "PyRIC", "netaddr", "pyx"
 ]
 
 setup(name='boop',
@@ -41,10 +41,9 @@ setup(name='boop',
                 'Topic :: System :: Networking',
                 'Topic :: Utilities',
                 'Operating System :: POSIX :: Linux',
-                'Programming Language :: Python',
                 'Programming Language :: Python :: 3.6',
                 'Programming Language :: Python :: 3.7'],
-    keywords='Linux Python selenium yaml',
+    keywords='Linux Python wireless packet capture security hacking',
     packages=find_packages(),
     package_data={}
 )
