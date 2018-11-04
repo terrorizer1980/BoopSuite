@@ -16,6 +16,27 @@ WPS_QUERY = {
 	b"\x00\x50\xf2": "Microsof"
 }
 
+# wps_attributes = {
+#     0x104A : {'name' : 'Version                          ', 'type' : 'hex'},
+#     0x1044 : {'name' : 'WPS State                        ', 'type' : 'hex'},
+#     0x1057 : {'name' : 'AP Setup Locked                  ', 'type' : 'hex'},
+#     0x1041 : {'name' : 'Selected Registrar               ', 'type' : 'hex'},
+#     0x1012 : {'name' : 'Device Password ID               ', 'type' : 'hex'},
+#     0x1053 : {'name' : 'Selected Registrar Config Methods', 'type' : 'hex'},
+#     0x103B : {'name' : 'Response Type                    ', 'type' : 'hex'},
+#     0x1047 : {'name' : 'UUID-E                           ', 'type' : 'hex'},
+#     0x1021 : {'name' : 'Manufacturer                     ', 'type' : 'str'},
+#     0x1023 : {'name' : 'Model Name                       ', 'type' : 'str'},
+#     0x1024 : {'name' : 'Model Number                     ', 'type' : 'str'},
+#     0x1042 : {'name' : 'Serial Number                    ', 'type' : 'str'},
+#     0x1054 : {'name' : 'Primary Device Type              ', 'type' : 'hex'},
+#     0x1011 : {'name' : 'Device Name                      ', 'type' : 'str'},
+#     0x1008 : {'name' : 'Config Methods                   ', 'type' : 'hex'},
+#     0x103C : {'name' : 'RF Bands                         ', 'type' : 'hex'},
+#     0x1045 : {'name' : 'SSID                             ', 'type' : 'str'},
+#     0x102D : {'name' : 'OS Version                       ', 'type' : 'str'}
+# }
+
 def get_rssi(decoded):
 
     try:

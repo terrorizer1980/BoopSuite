@@ -3,6 +3,9 @@ Boop ~ Slitherin' on yo wifi 🐍🐍🐍
 
 ![alt text](Images/facebook_cover_photo_2.png)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CodeFactor](https://www.codefactor.io/repository/github/misterbianco/boopsuite/badge)](https://www.codefactor.io/repository/github/misterbianco/boopsuite)
+
 ### Synopsis:
 
 BoopSuite is a wireless testing suite with extensible and independent components.
