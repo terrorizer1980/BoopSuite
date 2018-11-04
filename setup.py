@@ -17,7 +17,7 @@ from setuptools import setup, find_packages
 import boop
 
 requires = [
-    "scapy", "PyRIC", "netaddr", "pyx"
+    "scapy", "PyRIC", "netaddr"
 ]
 
 setup(name='boop',
