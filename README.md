@@ -37,19 +37,13 @@ def pkt(self, p):
     self.packets += 1
     return
 
-@app.printer()
-def printa(self):
-    while True:
-        print(self.packets)
-        time.sleep(5)
-
 app.run()
 
 ```
 
 Import the modules you need, add handlers for the packets you want and parse away.
 
-List of fill packet types:
+List of all packet types:
 
 * MGMT_ASSOC_REQ
 * MGMT_ASSOC_RESP
@@ -78,14 +72,14 @@ feel free to use, modify and extend.
 # Requirements:
 
 + python3
-+ everything in the requirements.txt
++ Now uses Poetry for library management
 
 # Installation:
 
 #### To install open a terminal and type:
 
 ```
-pip3 install boop
+* work in progress adding to pypi
 ```
 
 # Motivation:

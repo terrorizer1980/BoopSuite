@@ -1,30 +1,20 @@
 #!/usr/bin/env python3
 
-import boop
-import time
+from .all import *
 
-from boop.helpers import *
-
-app = boop.BoopSniff("wlx18d6c70f910d", boop.Hopper("wlx18d6c70f910d"))
+app = Sniffer("wlan0mon")
 app.packets = 0
 
-@app.handler(boop.MGMT_DEAUTH)
-def pkt(self, p):
+@app.handler(MGMT_BEACON)
+def beacon(self, p):
     self.packets += 1
+    print(p.bssid_vendor)
     return
 
-@app.handler(boop.MGMT_BEACON)
-def pkt(self, p):
-    get_ssid(p.info)
-    get_security(p)
+@app.handler(MGMT_PROBE_RESP)
+def probe_resp(self, p):
     self.packets += 1
+    print(p)
     return
-
-@app.printer()
-def printa(self):
-    # Could do something with curses
-    while True:
-        # print(self.packets)
-        time.sleep(5)
 
 app.run()
