@@ -1,0 +1,10 @@
+*.pyc
+*.pcap
+test.py
+pcaps/
+errorlog.txt
+dist/
+build/
+boop.egg-info/
+__pycache__/
+.venv/
